@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}Panel de control de trabajos{% endblock %}</title>
+    {% block stylesheets %}{% include 'styles.html.twig' %}
+    {% include 'style.html.twig' %}
+    {% endblock %}
+</head>
+
+<body>
+{% block header %}
+        {% include 'header.html.twig' %}
+{% endblock %}
+<section> 
+<div class="container">
+<br>
+</br>
+   <div class="row">
+                    <div class="col-4">
+                        <div class="col-2">
+                            {% block sidebar %}
+                             {% include 'sidebar.html.twig' %}
+                            {% endblock %}
+                            </div>
+                    </div>
+          <div class="col-sm-8 ">
+                       {% block body %}{% endblock %}
+            
+        </div>
+
+      </div>
+
+    </div>    
+</section>
+
+</body>    
 </html>
